@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  # Service with application container
+  flood-control:
+    image: flood-control
+    depends_on:
+      redis-database:
+        condition: service_started
+    ports:
+      - "8000:8000"
+
+  # Service with redis database container
+  redis-database:
+    image: redis:latest
+    volumes:
+      - redis-database:/data/db/redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  redis-database:

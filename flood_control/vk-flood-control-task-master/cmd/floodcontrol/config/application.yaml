@@ -1,0 +1,9 @@
+app:
+  flood-control:
+    time-interval-seconds: 10s
+    call-count-limit: 3
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
